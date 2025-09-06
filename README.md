@@ -1,2 +1,2 @@
-# mc-server-config-editor
-A simple Web UI for editing Minecraft server configs
+# Minecraft Server Config Editor
+A simple Web UI for editing Minecraft server configs.
