@@ -1,7 +1,7 @@
 {
   "$schema": "https://wails.io/schemas/config.v2.json",
-  "name": "proj",
-  "outputfilename": "proj",
+  "name": "mc-server-config-editor",
+  "outputfilename": "mc-server-config-editor",
   "frontend:dir": "frontend",
   "frontend:install": "",
   "frontend:build": "",

@@ -4,3 +4,5 @@ wailsjs/
 
 elm-stuff
 repl-temp-*
+
+__pycache__/
