@@ -9,6 +9,5 @@ A simple Web UI for editing Minecraft server configs.
 
 # Build
 ```bash
-cd proj/
 python3 build.py
 ```
