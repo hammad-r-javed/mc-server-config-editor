@@ -4,7 +4,7 @@
   "outputfilename": "proj",
   "frontend:dir": "frontend",
   "frontend:install": "",
-  "frontend:build": "./build.sh",
+  "frontend:build": "",
   "frontend:dev:serverUrl": "",
   "author": {
     "name": "hammad-r-javed",
