@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "proj",
+  "outputfilename": "proj",
+  "frontend:dir": "frontend",
+  "frontend:install": "",
+  "frontend:build": "./build.sh",
+  "frontend:dev:serverUrl": "",
+  "author": {
+    "name": "hammad-r-javed",
+    "email": "128047144+hammad-r-javed@users.noreply.github.com"
+  }
+}
