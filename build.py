@@ -1,4 +1,5 @@
 import os
+import sys
 import subprocess
 import shutil
 
@@ -13,8 +14,16 @@ def build_front_end():
     
     os.chdir(root_dir)
 
-def build_app():
-    subprocess.run(['wails', 'build'])
+def build_app(command):
+    subprocess.run(command)
+    exit()
 
 build_front_end()
-build_app()
+
+if len(sys.argv) == 1:
+    build_app(['wails', 'build'])
+
+if sys.argv[1] == 'dev':
+    build_app(['wails', 'build', '--devtools'])
+
+print(f'Invalid CLI param provided -> {sys.argv[1]}')

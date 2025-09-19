@@ -1,6 +1,9 @@
+server-config/
+
 build/
 dist/
 wailsjs/
+IGNORE/
 
 elm-stuff
 repl-temp-*

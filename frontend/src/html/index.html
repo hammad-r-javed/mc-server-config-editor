@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    </head>
+
+    <body>
+        <div id="elm-main"></div>
+
+        <script src="elm.js"></script>
+        <script>
+            var elmRuntime = Elm.Main.init({
+                node: document.getElementById("elm-main")
+            });
+
+            elmRuntime.ports.requestProject.subscribe(async () => {
+                try {
+                    const result = await window.go.main.App.RequestProject();
+                    elmRuntime.ports.onProjectReceived.send(result);
+                } catch (err) {
+                    console.error("Error calling Greet: ", err);
+                    elmRuntime.ports.onProjectReceived.send("Error, could not call greet function");
+                };
+            });
+        </script>
+    </body>
+</html>
