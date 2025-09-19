@@ -1,3 +1,5 @@
 if not exist dist mkdir dist
-elm make src\elm\main\Main.elm
-move index.html dist\
+
+elm make src/elm/Main.elm --output dist/elm.js
+
+cp src/html/index.html dist/
