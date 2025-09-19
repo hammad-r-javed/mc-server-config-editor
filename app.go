@@ -18,6 +18,6 @@ func (a *App) startup(ctx context.Context) {
 }
 
 // TOOD - implement
-func (a *App) RequestProject() string {
-	return fmt.Sprintf("stub successfully called")
+func (a *App) LoadServerConf() string {
+	return fmt.Sprintf("LoadServerConf - stub successfully called")
 }

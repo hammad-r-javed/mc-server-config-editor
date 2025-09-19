@@ -17,8 +17,8 @@ import PageStyle as Style
 
 --- PORTS
 
-port requestProject : () -> Cmd msg
-port onProjectReceived : (String -> msg) -> Sub msg
+port requestServerConf : () -> Cmd msg
+port onServerConfReceived : (String -> msg) -> Sub msg
 
 
 -- MAIN
@@ -39,7 +39,7 @@ main =
 
 
 type Model
-    = NoProjectSelected
+    = NoServerConfLoaded
 
 
 
@@ -48,7 +48,7 @@ type Model
 
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( NoProjectSelected
+    ( NoServerConfLoaded
     , Cmd.none
     )
 
@@ -59,31 +59,32 @@ init _ =
 
 type Msg
     = NoOp
-    | RequestProject
-    | ProjectReceived String
+    | RequestServerConf
+    | ServerConfReceived String -- TODO replace String with real model type
+
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
-            ( NoProjectSelected
+            ( NoServerConfLoaded
             , Cmd.none
             )
-        RequestProject ->
+        RequestServerConf ->
             -- TODO - implement
             let
                 _ =
-                    Debug.log "[DEBUG]" "RequestProject - message fired"
+                    Debug.log "[DEBUG]" "RequestServerConf - message fired"
             in
-            ( NoProjectSelected
-            , requestProject()
+            ( NoServerConfLoaded
+            , requestServerConf()
             )
-        ProjectReceived value ->
+        ServerConfReceived value ->
             let
                 _ =
-                    Debug.log "[DEBUG]" <| String.concat ["ProjectReceived - ", value]
+                    Debug.log "[DEBUG]" <| String.concat ["ServerConfReceived - ", value]
             in
-            ( NoProjectSelected
+            ( NoServerConfLoaded
             , Cmd.none
             )
 
@@ -94,7 +95,7 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-    onProjectReceived ProjectReceived
+    onServerConfReceived ServerConfReceived
 
 
 
@@ -114,12 +115,12 @@ view model =
 viewController : Model -> Elem.Element Msg
 viewController model =
     case model of
-        NoProjectSelected ->
-            noProjectLoadedView
+        NoServerConfLoaded ->
+            noServerConfLoadedView
 
 
-noProjectLoadedView : Elem.Element Msg
-noProjectLoadedView =
+noServerConfLoadedView : Elem.Element Msg
+noServerConfLoadedView =
     let
         paddingCol =
             Elem.column
@@ -134,14 +135,14 @@ noProjectLoadedView =
         , Elem.column
             [ Elem.width Elem.fill
             ]
-            -- TODO - replace testing button with real button
+            -- TODO - replace with real button UI
             [ ElemInput.button
                 [ Elem.width <| Elem.fill
                 , Elem.height <| Elem.px 30
                 , ElemBg.color Style.elementBgColour
                 ]
                 { label = Elem.text "select project"
-                , onPress = Just RequestProject
+                , onPress = Just RequestServerConf
                 }
             ]
         , paddingCol

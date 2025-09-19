@@ -13,13 +13,13 @@
                 node: document.getElementById("elm-main")
             });
 
-            elmRuntime.ports.requestProject.subscribe(async () => {
+            elmRuntime.ports.requestServerConf.subscribe(async () => {
                 try {
-                    const result = await window.go.main.App.RequestProject();
-                    elmRuntime.ports.onProjectReceived.send(result);
+                    const result = await window.go.main.App.LoadServerConf();
+                    elmRuntime.ports.onServerConfReceived.send(result);
                 } catch (err) {
                     console.error("Error calling Greet: ", err);
-                    elmRuntime.ports.onProjectReceived.send("Error, could not call greet function");
+                    elmRuntime.ports.onServerConfReceived.send("Error, could not call greet function");
                 };
             });
         </script>
