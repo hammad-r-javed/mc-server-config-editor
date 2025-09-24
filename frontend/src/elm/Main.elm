@@ -71,7 +71,7 @@ update msg model =
             , Cmd.none
             )
         RequestServerConf ->
-            -- TODO - implement
+            -- TODO - capture and send config version to wails runtime
             let
                 _ =
                     Debug.log "[DEBUG]" "RequestServerConf - message fired"
@@ -80,6 +80,7 @@ update msg model =
             , requestServerConf()
             )
         ServerConfReceived value ->
+            -- TODO - replace this stub with implementation
             let
                 _ =
                     Debug.log "[DEBUG]" <| String.concat ["ServerConfReceived - ", value]
@@ -135,7 +136,7 @@ noServerConfLoadedView =
         , Elem.column
             [ Elem.width Elem.fill
             ]
-            -- TODO - replace with real button UI
+            -- TODO - replace this stub with real button UI
             [ ElemInput.button
                 [ Elem.width <| Elem.fill
                 , Elem.height <| Elem.px 30

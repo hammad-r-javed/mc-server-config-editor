@@ -15,11 +15,10 @@
 
             elmRuntime.ports.requestServerConf.subscribe(async () => {
                 try {
-                    const result = await window.go.main.App.LoadServerConf();
+                    const result = await window.go.app.App.LoadServerConf();
                     elmRuntime.ports.onServerConfReceived.send(result);
                 } catch (err) {
-                    console.error("Error calling Greet: ", err);
-                    elmRuntime.ports.onServerConfReceived.send("Error, could not call greet function");
+                    console.error("Error calling wails runtime method `LoadServerConf` : ", err);
                 };
             });
         </script>

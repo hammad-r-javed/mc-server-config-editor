@@ -1,4 +1,4 @@
-module testProject
+module mc-server-config-editor
 
 go 1.23
 
